@@ -10,6 +10,14 @@ execute:
 #| message: false
 library(tidyverse)
 library(primer.data)
+library(tidymodels)
+library(broom)
 ```
 
-U.S Elections are beyond a competition between Republication and Democratic parties. Using the data set about US people’s voting result from American National Election Studies survey, I seek to find the difference of men and women in 1992's Presidential election.
+U.S Elections are beyond a competition between Republication and Democratic parties. Using the data set about US people’s voting result from American National Election Studies survey, I seek to understand the relationship between preference of men and women in 1992's Presidential election. However, the survey might contains false information of people who they voted.
+
+$$
+P(Y = k) = \frac{e^{\beta_{k0} + \beta_{k1} X_1 + \beta_{k2} X_2 + \cdots + \beta_{kn} X_n}}{\sum_{j=1}^{K} e^{\beta_{j0} + \beta_{j1} X_1 + \beta_{j2} X_2 + \cdots + \beta_{jn} X_n}}
+$$
+
+with $Y \sim \text{Multinomial}(\boldsymbol{\rho})$ where $\boldsymbol{\rho} = (\rho_1, \rho_2, \ldots, \rho_K)$ are the probabilities above.
