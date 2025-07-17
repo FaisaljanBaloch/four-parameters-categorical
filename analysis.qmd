@@ -1,0 +1,6 @@
+---
+title: "Four Parameters Categorical"
+author: "Faisal Jan"
+format: html
+---
+
