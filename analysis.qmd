@@ -12,9 +12,10 @@ library(tidyverse)
 library(primer.data)
 library(tidymodels)
 library(broom)
+library(knitr)
 ```
 
-U.S Elections are beyond a competition between Republication and Democratic parties. Using the data set about US people’s voting result from American National Election Studies survey, I seek to understand the relationship between preference of men and women in 1992's Presidential election. However, the survey might contains false information of people who they voted.
+U.S Elections are beyond a competition between Republication and Democratic parties. Using the data set about US people’s voting result from American National Election Studies survey, I seek to understand the relationship between preference of men and women in 1992's Presidential election. However, the survey might contains false information of people who they voted. I model the candidate voting result, as a multinomial function of sex.
 
 $$
 P(Y = k) = \frac{e^{\beta_{k0} + \beta_{k1} X_1 + \beta_{k2} X_2 + \cdots + \beta_{kn} X_n}}{\sum_{j=1}^{K} e^{\beta_{j0} + \beta_{j1} X_1 + \beta_{j2} X_2 + \cdots + \beta_{jn} X_n}}
@@ -43,4 +44,19 @@ nes_92 <- nes |>
 
 fit_nes <- multinom_reg(engine = "nnet") |>
   fit(pres_vote ~ sex, data = nes_92)
+```
+
+```{r}
+fit_nes |>
+  tidy(conf.int = TRUE) |>
+  mutate(across(c(estimate, std.error, statistic, p.value, conf.low, conf.high), \(x) round(x, 3))) |>
+  select(`Outcome` = y.level,
+         `Term` = term,
+         `Estimate` = estimate,
+         `Std. Error` = std.error,
+         `z value` = statistic,
+         `p-value` = p.value,
+         `CI Low` = conf.low,
+         `CI High` = conf.high) |>
+  kable(caption = "Multinomial Logistic Regression Coefficients")
 ```

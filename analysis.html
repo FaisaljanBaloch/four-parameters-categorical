@@ -99,7 +99,7 @@ window.Quarto = {
 </header>
 
 
-<p>U.S Elections are beyond a competition between Republication and Democratic parties. Using the data set about US people’s voting result from American National Election Studies survey, I seek to understand the relationship between preference of men and women in 1992’s Presidential election. However, the survey might contains false information of people who they voted.</p>
+<p>U.S Elections are beyond a competition between Republication and Democratic parties. Using the data set about US people’s voting result from American National Election Studies survey, I seek to understand the relationship between preference of men and women in 1992’s Presidential election. However, the survey might contains false information of people who they voted. I model the candidate voting result, as a multinomial function of sex.</p>
 <p><span class="math display">\[
 P(Y = k) = \frac{e^{\beta_{k0} + \beta_{k1} X_1 + \beta_{k2} X_2 + \cdots + \beta_{kn} X_n}}{\sum_{j=1}^{K} e^{\beta_{j0} + \beta_{j1} X_1 + \beta_{j2} X_2 + \cdots + \beta_{jn} X_n}}
 \]</span></p>
@@ -110,6 +110,77 @@ P(Y = k) = \frac{e^{\beta_{k0} + \beta_{k1} X_1 + \beta_{k2} X_2 + \cdots + \bet
 \log\left(\frac{\hat{P}(\text{Perot})}{\hat{P}(\text{Bush})}\right) = -0.8519 + 0.4202 \cdot \text{Male}
 \end{align*}
 \]</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Multinomial Logistic Regression Coefficients</caption>
+<colgroup>
+<col style="width: 11%">
+<col style="width: 16%">
+<col style="width: 12%">
+<col style="width: 15%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 9%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Outcome</th>
+<th style="text-align: left;">Term</th>
+<th style="text-align: right;">Estimate</th>
+<th style="text-align: right;">Std. Error</th>
+<th style="text-align: right;">z value</th>
+<th style="text-align: right;">p-value</th>
+<th style="text-align: right;">CI Low</th>
+<th style="text-align: right;">CI High</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Clinton</td>
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">0.455</td>
+<td style="text-align: right;">0.075</td>
+<td style="text-align: right;">6.098</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0.309</td>
+<td style="text-align: right;">0.602</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Clinton</td>
+<td style="text-align: left;">sexMale</td>
+<td style="text-align: right;">-0.255</td>
+<td style="text-align: right;">0.111</td>
+<td style="text-align: right;">-2.304</td>
+<td style="text-align: right;">0.021</td>
+<td style="text-align: right;">-0.473</td>
+<td style="text-align: right;">-0.038</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Perot</td>
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-0.852</td>
+<td style="text-align: right;">0.107</td>
+<td style="text-align: right;">-7.974</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">-1.061</td>
+<td style="text-align: right;">-0.642</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Perot</td>
+<td style="text-align: left;">sexMale</td>
+<td style="text-align: right;">0.420</td>
+<td style="text-align: right;">0.144</td>
+<td style="text-align: right;">2.915</td>
+<td style="text-align: right;">0.004</td>
+<td style="text-align: right;">0.138</td>
+<td style="text-align: right;">0.703</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 
 </main>
 <!-- /main column -->
