@@ -104,6 +104,12 @@ window.Quarto = {
 P(Y = k) = \frac{e^{\beta_{k0} + \beta_{k1} X_1 + \beta_{k2} X_2 + \cdots + \beta_{kn} X_n}}{\sum_{j=1}^{K} e^{\beta_{j0} + \beta_{j1} X_1 + \beta_{j2} X_2 + \cdots + \beta_{jn} X_n}}
 \]</span></p>
 <p>with <span class="math inline">\(Y \sim \text{Multinomial}(\boldsymbol{\rho})\)</span> where <span class="math inline">\(\boldsymbol{\rho} = (\rho_1, \rho_2, \ldots, \rho_K)\)</span> are the probabilities above.</p>
+<p><span class="math display">\[
+\begin{align*}
+\log\left(\frac{\hat{P}(\text{Clinton})}{\hat{P}(\text{Bush})}\right) = 0.4554 - 0.2554 \cdot \text{Male} \\
+\log\left(\frac{\hat{P}(\text{Perot})}{\hat{P}(\text{Bush})}\right) = -0.8519 + 0.4202 \cdot \text{Male}
+\end{align*}
+\]</span></p>
 
 </main>
 <!-- /main column -->
